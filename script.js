@@ -30,40 +30,29 @@ function cerrarCarrito() {
 
 
 window.onload = function () {
-  const decision = localStorage.getItem("cookies_aceptadas");
-
-  if (decision === "true") {
-    cargarGoogleAnalytics();
-  } else if (decision === "false") {
-    window.location.href = "https://www.google.com"; // O la URL que tú decidas
-  } else {
-    document.getElementById("cookie-banner").style.display = "flex";
-  }
+  document.getElementById('cookie-banner').style.display = 'flex';
 };
 
 function aceptarCookies() {
-  localStorage.setItem("cookies_aceptadas", "true");
-  document.getElementById("cookie-banner").style.display = "none";
+  document.getElementById('cookie-banner').style.display = 'none';
   cargarGoogleAnalytics();
 }
 
 function rechazarCookies() {
-  localStorage.setItem("cookies_aceptadas", "false");
-  window.location.href = "https://www.google.com"; // Puedes cambiarlo
+  window.location.href = 'no-puedes-usar.html';
 }
 
 function cargarGoogleAnalytics() {
   const script1 = document.createElement("script");
-  script1.setAttribute("async", "");
-  script1.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX");
+  script1.async = true;
+  script1.src = "https://www.googletagmanager.com/gtag/js?id=G-0247W46NRM"; 
   document.head.appendChild(script1);
 
   script1.onload = function () {
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     window.gtag = gtag;
-
     gtag('js', new Date());
-    gtag('config', 'G-0247W46NRM');
+    gtag('config', 'G-0247W46NRM'); 
   };
 }
