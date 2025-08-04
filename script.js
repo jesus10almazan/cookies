@@ -28,28 +28,42 @@ function cerrarCarrito() {
   document.getElementById("carrito").style.display = "none";
 } 
 
-  window.onload = function () {
-    const decision = localStorage.getItem("cookies_aceptadas");
 
-    if (decision === "true") {
-      // Usuario aceptó, todo sigue normal
-    } else if (decision === "false") {
-      // Usuario rechazó, redirigirlo
-      window.location.href = "https://www.google.com"; // O la página que tú elijas
-    } else {
-      // No ha elegido aún → mostrar el banner
-      document.getElementById("cookie-banner").style.display = "flex";
-    }
+window.onload = function () {
+  const decision = localStorage.getItem("cookies_aceptadas");
+
+  if (decision === "true") {
+    cargarGoogleAnalytics();
+  } else if (decision === "false") {
+    window.location.href = "https://www.google.com"; // O la URL que tú decidas
+  } else {
+    document.getElementById("cookie-banner").style.display = "flex";
+  }
+};
+
+function aceptarCookies() {
+  localStorage.setItem("cookies_aceptadas", "true");
+  document.getElementById("cookie-banner").style.display = "none";
+  cargarGoogleAnalytics();
+}
+
+function rechazarCookies() {
+  localStorage.setItem("cookies_aceptadas", "false");
+  window.location.href = "https://www.google.com"; // Puedes cambiarlo
+}
+
+function cargarGoogleAnalytics() {
+  const script1 = document.createElement("script");
+  script1.setAttribute("async", "");
+  script1.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX");
+  document.head.appendChild(script1);
+
+  script1.onload = function () {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-0247W46NRM');
   };
-
-  function aceptarCookies() {
-    localStorage.setItem("cookies_aceptadas", "true");
-    document.getElementById("cookie-banner").style.display = "none";
-    // El usuario se queda en el sitio
-  }
-
-  function rechazarCookies() {
-    localStorage.setItem("cookies_aceptadas", "false");
-    // Redirige inmediatamente
-    window.location.href = "https://www.google.com"; // O cambia la URL por la que tú quieras
-  }
+}
