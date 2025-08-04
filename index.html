@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moda Urbana | Catálogo</title>
+  <link rel="stylesheet" href="stilos.css" />
+</head>
+<body>
+  <header>
+    <h1>🛍️ Moda Urbana</h1>
+    <button id="carrito-btn">🛒 Carrito (<span id="contador">0</span>)</button>
+  </header>
+
+  <main>
+    <section class="catalogo">
+      <!-- Producto 1 -->
+      <div class="producto">
+        <img src="https://via.placeholder.com/300x400?text=Ropa+1" alt="Producto 1">
+        <h2>Conjunto Casual</h2>
+        <p>$799 MXN</p>
+        <button onclick="agregarAlCarrito('Conjunto Casual', 799)">Agregar al carrito</button>
+      </div>
+      <!-- Producto 2 -->
+      <div class="producto">
+        <img src="https://via.placeholder.com/300x400?text=Ropa+2" alt="Producto 2">
+        <h2>Look Urbano</h2>
+        <p>$649 MXN</p>
+        <button onclick="agregarAlCarrito('Look Urbano', 649)">Agregar al carrito</button>
+      </div>
+      <!-- Producto 3 -->
+      <div class="producto">
+        <img src="https://via.placeholder.com/300x400?text=Ropa+3" alt="Producto 3">
+        <h2>Vestido Elegante</h2>
+        <p>$999 MXN</p>
+        <button onclick="agregarAlCarrito('Vestido Elegante', 999)">Agregar al carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="carrito" class="carrito">
+    <h3>🛍️ Tu carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0</span> MXN</p>
+    <button onclick="cerrarCarrito()">Cerrar</button>
+  </div>
+
+  <footer>
+    <p>© 2025 Moda Urbana</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
