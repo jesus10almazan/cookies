@@ -27,3 +27,29 @@ document.getElementById("carrito-btn").addEventListener("click", () => {
 function cerrarCarrito() {
   document.getElementById("carrito").style.display = "none";
 } 
+
+  window.onload = function () {
+    const decision = localStorage.getItem("cookies_aceptadas");
+
+    if (decision === "true") {
+      // Usuario aceptó, todo sigue normal
+    } else if (decision === "false") {
+      // Usuario rechazó, redirigirlo
+      window.location.href = "https://www.google.com"; // O la página que tú elijas
+    } else {
+      // No ha elegido aún → mostrar el banner
+      document.getElementById("cookie-banner").style.display = "flex";
+    }
+  };
+
+  function aceptarCookies() {
+    localStorage.setItem("cookies_aceptadas", "true");
+    document.getElementById("cookie-banner").style.display = "none";
+    // El usuario se queda en el sitio
+  }
+
+  function rechazarCookies() {
+    localStorage.setItem("cookies_aceptadas", "false");
+    // Redirige inmediatamente
+    window.location.href = "https://www.google.com"; // O cambia la URL por la que tú quieras
+  }

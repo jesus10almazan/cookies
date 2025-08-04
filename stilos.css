@@ -101,3 +101,36 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    font-family: sans-serif;
+  }
+  
+  .cookie-banner p {
+    margin: 0;
+  }
+  
+  .cookie-banner button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #06f;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .cookie-banner button:hover {
+    background-color: #0053cc;
+  }
